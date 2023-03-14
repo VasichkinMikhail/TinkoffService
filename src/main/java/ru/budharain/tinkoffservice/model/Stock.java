@@ -1,7 +1,11 @@
 package ru.budharain.tinkoffservice.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Value;
 
+@Value
+@AllArgsConstructor
 public class Stock {
     private String ticker;
     private String figi;
@@ -9,4 +13,5 @@ public class Stock {
     private String type;
     Currency currency;
     private String source;
+
 }
