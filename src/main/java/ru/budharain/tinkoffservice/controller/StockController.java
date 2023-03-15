@@ -1,9 +1,11 @@
 package ru.budharain.tinkoffservice.controller;
 
+import dto.FigiesDto;
+import dto.StocksDto;
+import dto.StocksPricesDto;
+import dto.TickersDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.budharain.tinkoffservice.model.Stock;
 import ru.budharain.tinkoffservice.service.StockService;
 
@@ -15,4 +17,13 @@ public class StockController {
     public Stock getStock(@PathVariable String ticker){
        return stockService.getStockByTicker(ticker);
     }
+    @PostMapping("/stocks/getStocksByTickers")
+    public StocksDto getStocksByTickers(@RequestBody TickersDto tickersDto){
+        return stockService.getStocksByTickers(tickersDto);
+    }
+    @PostMapping("/prices")
+    public StocksPricesDto getPrices(@RequestBody FigiesDto figiesDto){
+        return stockService.getPrices(figiesDto);
+    }
+
 }
